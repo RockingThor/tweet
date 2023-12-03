@@ -9,10 +9,11 @@
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^1.0.14",
-    "vite": "^2.9.15",
-    "@types/chrome": "^0.0.253"
+    "@types/chrome": "^0.0.253",
+    "vite": "^2.9.15"
   },
   "dependencies": {
+    "dotenv": "^16.3.1",
     "openai": "^4.20.1"
   }
 }
