@@ -1,16 +1,14 @@
 import { generatePrompt } from "./utils/generatePrompt";
 import { getTweetReply } from "./utils/openai";
+import { writeTweet } from "./utils/writeTweet";
 
 (() => {
   let url;
   let isNotLoaded = true;
-  console.log("Joy Maa Durga");
   chrome.runtime.onMessage.addListener((obj, sender, response) => {
-    const { type, work } = obj;
+    const { type } = obj;
     url = obj?.url;
     if (type === "NEW") {
-      console.log("Joy Maa Durga");
-      console.log(url);
       setTimeout(() => {
         tweetInitiation();
       }, 2000);
@@ -27,8 +25,10 @@ import { getTweetReply } from "./utils/openai";
       generateButton.src = chrome.runtime.getURL("assets/logo.svg.png");
       generateButton.className = "tweetbot_reply_button" + "twt-button";
       generateButton.title = "Click to generate automatic tweet reply.";
-      generateButton.width = 20;
-      generateButton.height = 20;
+      generateButton.width = 18;
+      generateButton.height = 18;
+      generateButton.style.marginTop = "10px";
+      generateButton.style.marginLeft = "8px";
 
       let twitterTabLists = document.querySelectorAll(
         'div[data-testid="ScrollSnap-List"]'
@@ -38,7 +38,8 @@ import { getTweetReply } from "./utils/openai";
       generateButton.addEventListener("click", async () => {
         console.log("I was clicked");
         const prompt = generatePrompt();
-        await getTweetReply(prompt);
+        writeTweet(prompt);
+        //await getTweetReply(prompt);
       });
     }
   };

@@ -1,5 +1,6 @@
 const apiKey = import.meta.env.OPENAI_API_KEY;
 import OpenAI from "openai";
+import { writeTweet } from "./writeTweet";
 
 const openai = new OpenAI({
   apiKey: apiKey,
@@ -14,6 +15,8 @@ export const getTweetReply = async (tweetText) => {
     });
 
     //return response.data.choices[0].text.trim();
+    const text = response.choices[0].message.content;
+    writeTweet(text);
     console.log(response);
   } catch (error) {
     console.error("Error calling the OpenAI API", error);
