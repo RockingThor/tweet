@@ -22,7 +22,9 @@
   ],
   "action": {
     "default_icon": {
-      "48": "icon.png"
+      "48": "logo.svg.png",
+      "16": "logo.svg.png",
+      "128": "logo.svg.png"
     },
     "default_title": "Auto Tweet",
     "default_popup": "popup.html"

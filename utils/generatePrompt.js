@@ -7,7 +7,7 @@ export const generatePrompt = () => {
       paragraph += span.textContent + " ";
     });
     const prompt =
-      "Here is a tweet from twitter. Please generate a professional yet engaging and funny tweet reply. The tweet is: " +
+      "Here is a tweet from twitter. Please generate a professional yet engaging and funny tweet reply strictly under 200 characters or letters. The tweet is: " +
       paragraph;
     return prompt;
   }
